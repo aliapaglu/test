@@ -5,8 +5,7 @@ def apply_discount(subtotal: float, percent: float) -> float:
     """Return the subtotal after applying a percentage discount."""
     if percent < 0 or percent > 100:
         raise ValueError("percent must be between 0 and 100")
-    # BUG: subtracts the percent as a flat amount instead of a percentage
-    return round(subtotal - percent, 2)
+    return round(subtotal * (1 - percent / 100), 2)
 
 
 def add_tax(amount: float, rate: float) -> float:
